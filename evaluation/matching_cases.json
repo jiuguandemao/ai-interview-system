@@ -1,0 +1,22 @@
+[
+  {
+    "id": "case-001",
+    "resume": {"skills": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker"]},
+    "jd": {
+      "required_skills": ["Python", "FastAPI", "PostgreSQL"],
+      "preferred_skills": ["Redis", "Docker"],
+      "responsibilities": []
+    },
+    "human_match": true
+  },
+  {
+    "id": "case-002",
+    "resume": {"skills": ["Java", "Spring"]},
+    "jd": {
+      "required_skills": ["Python", "FastAPI", "PostgreSQL"],
+      "preferred_skills": ["LangGraph"],
+      "responsibilities": []
+    },
+    "human_match": false
+  }
+]
