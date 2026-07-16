@@ -1,0 +1,89 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#F7F7FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 1L9 5L0 9" fill="#64748B"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #0F172A; }
+      .subtitle { font: 400 17px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #475569; }
+      .step { font: 700 18px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #0F172A; }
+      .small { font: 400 14px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #475569; }
+      .num { font: 800 18px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: white; }
+      .pill { font: 600 13px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="560" rx="26" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1144" height="504" rx="24" fill="white" stroke="#DDE7F0"/>
+
+  <text x="64" y="82" class="title">LangGraph Agent 工作流</text>
+  <text x="64" y="116" class="subtitle">用状态图约束出题、追问、评分和终止条件，让面试流程可控、可追踪、可解释</text>
+
+  <path d="M183 262H268" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M385 262H470" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M587 262H672" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M789 262H874" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="190" width="150" height="144" rx="20" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <circle cx="147" cy="218" r="18" fill="#2563EB"/>
+    <text x="147" y="224" text-anchor="middle" class="num">1</text>
+    <text x="147" y="263" text-anchor="middle" class="step">检索上下文</text>
+    <text x="147" y="293" text-anchor="middle" class="small">简历 / 项目 / JD</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="274" y="190" width="150" height="144" rx="20" fill="#F0FDFA" stroke="#99F6E4"/>
+    <circle cx="349" cy="218" r="18" fill="#0F766E"/>
+    <text x="349" y="224" text-anchor="middle" class="num">2</text>
+    <text x="349" y="263" text-anchor="middle" class="step">生成问题</text>
+    <text x="349" y="293" text-anchor="middle" class="small">基于岗位定制</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="476" y="190" width="150" height="144" rx="20" fill="#FFF7ED" stroke="#FED7AA"/>
+    <circle cx="551" cy="218" r="18" fill="#EA580C"/>
+    <text x="551" y="224" text-anchor="middle" class="num">3</text>
+    <text x="551" y="263" text-anchor="middle" class="step">候选人回答</text>
+    <text x="551" y="293" text-anchor="middle" class="small">保存原始答案</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="678" y="190" width="150" height="144" rx="20" fill="#F5F3FF" stroke="#DDD6FE"/>
+    <circle cx="753" cy="218" r="18" fill="#7C3AED"/>
+    <text x="753" y="224" text-anchor="middle" class="num">4</text>
+    <text x="753" y="263" text-anchor="middle" class="step">四维度评分</text>
+    <text x="753" y="293" text-anchor="middle" class="small">证据 + 缺口</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="880" y="176" width="238" height="172" rx="24" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="999" y="225" text-anchor="middle" class="step">分支决策</text>
+    <text x="999" y="258" text-anchor="middle" class="small">需要追问：继续补证据</text>
+    <text x="999" y="286" text-anchor="middle" class="small">轮次结束：生成报告</text>
+    <text x="999" y="314" text-anchor="middle" class="small">否则：进入下一题</text>
+  </g>
+
+  <path d="M999 348C999 388 740 392 565 334" stroke="#64748B" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+  <text x="780" y="386" text-anchor="middle" class="small">追问或下一题会回到回答节点</text>
+
+  <rect x="92" y="404" width="1016" height="56" rx="18" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="124" y="439" class="pill">评分维度：</text>
+  <rect x="213" y="416" width="132" height="32" rx="16" fill="#E0F2FE"/>
+  <text x="279" y="437" text-anchor="middle" class="pill">技术准确性</text>
+  <rect x="365" y="416" width="132" height="32" rx="16" fill="#DCFCE7"/>
+  <text x="431" y="437" text-anchor="middle" class="pill">项目深度</text>
+  <rect x="517" y="416" width="132" height="32" rx="16" fill="#FEF3C7"/>
+  <text x="583" y="437" text-anchor="middle" class="pill">表达清晰度</text>
+  <rect x="669" y="416" width="132" height="32" rx="16" fill="#F3E8FF"/>
+  <text x="735" y="437" text-anchor="middle" class="pill">岗位匹配度</text>
+  <rect x="821" y="416" width="204" height="32" rx="16" fill="#E2E8F0"/>
+  <text x="923" y="437" text-anchor="middle" class="pill">引用证据与缺失点</text>
+</svg>

@@ -1,0 +1,107 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#EEF6F6"/>
+    </linearGradient>
+    <linearGradient id="primary" x1="74" y1="170" x2="1040" y2="454" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F766E"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 1L9 5L0 9" fill="#64748B"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #0F172A; }
+      .subtitle { font: 400 17px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #475569; }
+      .label { font: 700 19px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #0F172A; }
+      .small { font: 400 14px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #475569; }
+      .tiny { font: 600 12px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #64748B; letter-spacing: .08em; }
+      .pill { font: 600 13px Inter, "Segoe UI", Arial, "Microsoft YaHei", sans-serif; fill: #0F766E; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" rx="26" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1144" height="564" rx="24" fill="white" stroke="#DDE7F0"/>
+
+  <text x="64" y="82" class="title">AI-Interview 技术架构</text>
+  <text x="64" y="116" class="subtitle">从简历/JD 上传，到异步解析、RAG 检索、Agent 面试与报告生成的完整工程链路</text>
+  <rect x="930" y="62" width="178" height="34" rx="17" fill="#ECFDF5" stroke="#99F6E4"/>
+  <text x="953" y="84" class="pill">FastAPI + RAG + Agent</text>
+
+  <path d="M171 292H295" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M407 292H531" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M643 292H767" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M879 292H1003" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="64" y="198" width="142" height="188" rx="20" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <circle cx="135" cy="240" r="28" fill="#E0F2FE"/>
+    <path d="M119 240H151M135 224V256" stroke="#0284C7" stroke-width="4" stroke-linecap="round"/>
+    <text x="135" y="300" text-anchor="middle" class="label">用户入口</text>
+    <text x="135" y="329" text-anchor="middle" class="small">Browser / Streamlit</text>
+    <text x="135" y="354" text-anchor="middle" class="small">上传简历、JD</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="294" y="176" width="150" height="232" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="369" y="219" text-anchor="middle" class="tiny">API LAYER</text>
+    <text x="369" y="263" text-anchor="middle" class="label">FastAPI</text>
+    <text x="369" y="297" text-anchor="middle" class="small">JWT 鉴权</text>
+    <text x="369" y="324" text-anchor="middle" class="small">参数校验</text>
+    <text x="369" y="351" text-anchor="middle" class="small">任务状态查询</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="524" y="176" width="156" height="232" rx="22" fill="#F0FDFA" stroke="#99F6E4"/>
+    <text x="602" y="219" text-anchor="middle" class="tiny">ASYNC LAYER</text>
+    <text x="602" y="262" text-anchor="middle" class="label">Celery Worker</text>
+    <text x="602" y="296" text-anchor="middle" class="small">Redis 队列投递</text>
+    <text x="602" y="323" text-anchor="middle" class="small">解析 / 向量化</text>
+    <text x="602" y="350" text-anchor="middle" class="small">LLM 调用重试</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="754" y="144" width="170" height="296" rx="24" fill="#F5F3FF" stroke="#DDD6FE"/>
+    <text x="839" y="187" text-anchor="middle" class="tiny">AI ENGINE</text>
+    <rect x="784" y="216" width="110" height="36" rx="18" fill="white" stroke="#C4B5FD"/>
+    <text x="839" y="239" text-anchor="middle" class="small">文件解析</text>
+    <rect x="784" y="267" width="110" height="36" rx="18" fill="white" stroke="#C4B5FD"/>
+    <text x="839" y="290" text-anchor="middle" class="small">结构化抽取</text>
+    <rect x="784" y="318" width="110" height="36" rx="18" fill="white" stroke="#C4B5FD"/>
+    <text x="839" y="341" text-anchor="middle" class="small">RAG 检索</text>
+    <rect x="784" y="369" width="110" height="36" rx="18" fill="white" stroke="#C4B5FD"/>
+    <text x="839" y="392" text-anchor="middle" class="small">LangGraph</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1002" y="176" width="134" height="232" rx="22" fill="#FFF7ED" stroke="#FED7AA"/>
+    <text x="1069" y="219" text-anchor="middle" class="tiny">DATA LAYER</text>
+    <text x="1069" y="263" text-anchor="middle" class="label">PostgreSQL</text>
+    <text x="1069" y="297" text-anchor="middle" class="small">pgvector</text>
+    <text x="1069" y="324" text-anchor="middle" class="small">用户 / 简历</text>
+    <text x="1069" y="351" text-anchor="middle" class="small">题目 / 报告</text>
+  </g>
+
+  <rect x="74" y="478" width="1052" height="56" rx="18" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="104" y="512" class="small">工程闭环：</text>
+  <text x="187" y="512" class="small">登录鉴权</text>
+  <circle cx="266" cy="508" r="4" fill="url(#primary)"/>
+  <text x="288" y="512" class="small">创建任务</text>
+  <circle cx="366" cy="508" r="4" fill="url(#primary)"/>
+  <text x="388" y="512" class="small">异步处理</text>
+  <circle cx="466" cy="508" r="4" fill="url(#primary)"/>
+  <text x="488" y="512" class="small">向量检索</text>
+  <circle cx="566" cy="508" r="4" fill="url(#primary)"/>
+  <text x="588" y="512" class="small">多轮面试</text>
+  <circle cx="666" cy="508" r="4" fill="url(#primary)"/>
+  <text x="688" y="512" class="small">评分追问</text>
+  <circle cx="766" cy="508" r="4" fill="url(#primary)"/>
+  <text x="788" y="512" class="small">生成报告</text>
+  <circle cx="866" cy="508" r="4" fill="url(#primary)"/>
+  <text x="888" y="512" class="small">日志与状态追踪</text>
+</svg>

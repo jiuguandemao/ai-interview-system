@@ -31,41 +31,21 @@
 | 异步任务 | Celery + Redis 处理解析、向量化和模型调用 | API 不阻塞、任务状态、幂等和重试 |
 | 部署运行 | Docker Compose 编排 API、Worker、DB、Redis、前端 | 可复现部署、健康检查、生产化差距 |
 
-## 技术架构
+## 架构概览
 
-```mermaid
-flowchart LR
-    U[Browser / Streamlit] -->|JWT + HTTP| API[FastAPI API]
-    API -->|create job| DB[(PostgreSQL + pgvector)]
-    API -->|enqueue| R[(Redis)]
-    R --> W[Celery Worker]
-    W --> P[PDF/DOCX Parser]
-    W --> L[LLM Structured Output]
-    W --> E[Embedding Service]
-    W --> G[LangGraph Interview Agent]
-    P --> DB
-    L --> DB
-    E --> DB
-    G --> DB
-    API -->|poll job/report| U
-```
+<p align="center">
+  <img src="docs/assets/architecture.svg" alt="AI-Interview 技术架构" width="100%">
+</p>
 
-## Agent 状态图
+系统分成五层：前端负责上传和展示，FastAPI 负责鉴权与接口编排，Redis + Celery 承接耗时任务，LLM/RAG/LangGraph 负责智能分析，PostgreSQL + pgvector 保存业务数据和向量数据。
 
-```mermaid
-flowchart TD
-    A[Start Interview] --> B[Retrieve Context]
-    B --> C[Generate Question]
-    C --> D[User Answer]
-    D --> E[Four-Dimension Scoring]
-    E --> F{Need Follow-up?}
-    F -->|Yes| G[Generate Follow-up]
-    F -->|No| H[Generate Next Question]
-    G --> D
-    H --> D
-    E --> I{Reach Max Rounds?}
-    I -->|Yes| J[Generate Report]
-```
+## Agent 工作流
+
+<p align="center">
+  <img src="docs/assets/agent-flow.svg" alt="AI-Interview Agent 工作流" width="100%">
+</p>
+
+LangGraph 在这里不是为了“套框架”，而是把面试拆成可控节点：先检索候选人材料，再生成岗位相关问题，用户回答后进行四维度评分，最后根据缺失点决定追问、下一题或生成报告。
 
 ## 快速开始
 
